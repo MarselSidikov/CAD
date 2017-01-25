@@ -58,7 +58,6 @@ public class PathFindLeeAlgorithmImpl implements PathFindAlgorithm {
             }
             currentValue++;
         } while (!allVisited && endIsBlank(end));
-        logGrid();
         return !endIsBlank(end);
     }
 
@@ -133,14 +132,5 @@ public class PathFindLeeAlgorithmImpl implements PathFindAlgorithm {
 
     private void setStart(Point start) {
         this.grid[start.getY()][start.getX()] = START_VALUE;
-    }
-
-    private void logGrid() {
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[row].length; col++) {
-                System.out.printf("%4d", grid[row][col]);
-            }
-            System.out.println();
-        }
     }
 }

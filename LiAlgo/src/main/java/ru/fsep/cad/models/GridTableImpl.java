@@ -17,7 +17,9 @@ public class GridTableImpl implements Grid{
     public static GridTableImpl buildGrid(int height, int width) {
         return new GridTableImpl(height, width);
     }
-
+    public static GridTableImpl buildGrid(int[][] customGrid) {
+        return new GridTableImpl(customGrid);
+    }
     private GridTableImpl(int height, int width) {
         this.height = height;
         this.width = width;
@@ -27,6 +29,12 @@ public class GridTableImpl implements Grid{
         for (int i = 0; i < height; i++) {
             grid[i] = new int[width];
         }
+    }
+
+    private GridTableImpl(int[][] customGrid) {
+        this.grid = customGrid;
+        this.height = customGrid.length;
+        this.width = customGrid[0].length;
     }
 
     public void setWall(Point point) {
